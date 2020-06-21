@@ -2,13 +2,13 @@
     <div class="budget-items-container">
         <div class="income-column">
             <h1>Income</h1>
-            <app-budget-card [isIncome]="true" [description]="'Salary'" [amount]="400000" style="margin-bottom: 20px;"></app-budget-card>
+            <app-budget-card *ngFor="let item of state.income;let i=index;" [isIncome]="true" [description]="item.description"
+                [amount]="item.amount" style="margin-bottom: 20px;" (remove)="state.removeItem(i,true)"></app-budget-card>
         </div>
         <div class="expenses-column">
             <h1>Expenses</h1>
-            <app-budget-card [isIncome]="false" [description]="'Rent'" [amount]="8000" style="margin-bottom: 20px;"></app-budget-card>
-            <app-budget-card [isIncome]="false" [description]="'Food'" [amount]="10000" style="margin-bottom: 20px;"></app-budget-card>
-            <app-budget-card [isIncome]="false" [description]="'Travel'" [amount]="1000" style="margin-bottom: 20px;"></app-budget-card>
+            <app-budget-card *ngFor="let item of state.expenditure;let i=index" [isIncome]="false" [description]="item.description"
+                [amount]="item.amount" style="margin-bottom: 20px;" (remove)="state.removeItem(i,false)"></app-budget-card>
         </div>
     </div>
 </section>

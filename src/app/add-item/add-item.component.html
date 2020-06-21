@@ -1,27 +1,25 @@
-<form>
+<form (ngSubmit)="addItem()">
     <div class="field is-horizontal">
         <div class="field-body">
 
             <div class="field is-narrow">
                 <p class="control">
                     <input type="number" required name="amount" style="width: 100px;" class="input"
-                        placeholder="Amount">
+                        placeholder="Amount" [(ngModel)]="amount">
                 </p>
             </div>
 
             <div class="field">
                 <p class="control">
-                    <input type="text" required name="description" class="input" placeholder="Description">
+                    <input type="text" required name="description" class="input" placeholder="Description" [(ngModel)]="description">
                 </p>
             </div>
 
             <div class="field is-narrow">
                 <button type="submit" class="button is-primary">
                     <p>Add</p>
-                    <p>Save</p>
                 </button>
             </div>
-
         </div>
     </div>
 </form>
